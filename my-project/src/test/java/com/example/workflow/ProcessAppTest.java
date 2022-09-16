@@ -4,6 +4,7 @@ import com.example.entity.BizPaymentProcessInfo;
 import com.example.util.JsonUtils;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.util.Lists;
 import org.camunda.bpm.engine.HistoryService;
 import org.camunda.bpm.engine.ProcessEngine;
 import org.camunda.bpm.engine.RuntimeService;
@@ -55,9 +56,9 @@ public class ProcessAppTest {
         BizPaymentProcessInfo bizPaymentProcessInfo = new BizPaymentProcessInfo();
         bizPaymentProcessInfo.setId(1L);
         bizPaymentProcessInfo.setProductName("单板吉他");
-//        bizPaymentProcessInfo.setProductPrice(new BigDecimal(2100));
-        bizPaymentProcessInfo.setProductPrice(new BigDecimal(900));
-        bizPaymentProcessInfo.setPaymentAssignee("1028");
+        bizPaymentProcessInfo.setProductPrice(new BigDecimal(2100));
+//        bizPaymentProcessInfo.setProductPrice(new BigDecimal(900));
+        bizPaymentProcessInfo.setPaymentAssignee("5594");
         bizPaymentProcessInfo.setPaymentResult(0);
         bizPaymentProcessInfo.setApprovalResult(0);
         String businessKey = "1";
@@ -67,9 +68,10 @@ public class ProcessAppTest {
 
     @Test
     public void createTaskQuery() throws Exception {
-//        List<Task> tasks = taskService.createTaskQuery().taskAssignee("demo").list();
-//        List<Task> tasks = taskService.createTaskQuery().processDefinitionKey("PaymentProcess").list();
         List<Task> tasks = taskService.createTaskQuery().list();
+//        List<Task> tasks = taskService.createTaskQuery().taskAssignee("5594").list();
+//        List<Task> tasks = taskService.createTaskQuery().processDefinitionKey("PaymentProcess").list();
+//        List<Task> tasks = taskService.createTaskQuery().taskCandidateGroupIn(Lists.list("xngroup")).list();
         Gson gson = new Gson();
         for (Task task : tasks) {
             System.out.println(gson.toJson(task));
@@ -81,7 +83,8 @@ public class ProcessAppTest {
         HashMap<String, Object> map = new HashMap<>();
 //        map.put("approvalResult", 1);
         map.put("approvalResult", 2);
-        taskService.complete("d16787c6-34c8-11ed-9bb4-d8bbc1b89571", map);
+//        taskService.complete("d16787c6-34c8-11ed-9bb4-d8bbc1b89571", map);
+        taskService.complete("70a681c0-34c7-11ed-8211-d8bbc1b89571", map);
 //        taskService.complete("70a681c0-34c7-11ed-8211-d8bbc1b89571", processVariablesMap);
         System.out.println("Over");
     }
@@ -89,7 +92,7 @@ public class ProcessAppTest {
     @Test
     public void createHistoricTaskInstanceQuery() {
         List<HistoricTaskInstance> historicTaskInstances = this.historyService.createHistoricTaskInstanceQuery()
-                .taskAssignee("demo")
+                .taskAssignee("5594")
                 .processDefinitionKey("PaymentProcess")
 //                .taskDefinitionKey("Task_UserConfirmPayment")
 //                .finished()

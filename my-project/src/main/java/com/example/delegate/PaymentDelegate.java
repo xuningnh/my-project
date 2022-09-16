@@ -1,8 +1,10 @@
 package com.example.delegate;
 
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.camunda.bpm.engine.impl.persistence.entity.TaskEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +25,11 @@ public class PaymentDelegate implements JavaDelegate {
         String bizKey = execution.getProcessBusinessKey();
         String processInstanceId = execution.getProcessInstanceId();
         log.info("调用支付服务，processInstanceId: {}, bizKey: {}", processInstanceId, bizKey);
-
+        Gson gson = new Gson();
+        String s = gson.toJson(execution);
+        System.out.println(s);
+//        TaskEntity taskEntity = new TaskEntity();
+//        taskEntity.insert();
 //        PaymentProcessVariablesWrapper paymentProcessVariablesWrapper = new PaymentProcessVariablesWrapper(execution.getVariables());
 //        log.info("RPC调用支付服务, 流程变量：{}", paymentProcessVariablesWrapper);
 //
