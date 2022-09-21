@@ -10,6 +10,8 @@
         <!-- 注：通过Modeler作为附件一起部署，formKey格式为：camunda-forms:deployment:payment_confirm.form -->
         <resource>bpmn/PaymentInitForm.form</resource>
         <resource>bpmn/PaymentConfirmForm.form</resource>
+        <resource>start-form.html</resource>
+        <resource>task-form.html</resource>
         <properties>
             <property name="isDeleteUponUndeploy">false</property>
             <property name="isScanForProcessDefinitions">true</property>
