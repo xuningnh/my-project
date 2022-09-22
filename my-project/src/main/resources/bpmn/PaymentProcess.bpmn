@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0do1evt" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.3.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="PaymentProcess" name="支付流程示例" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_PaymentRequest" name="支付请求" camunda:formKey="embedded:deployment:start-form.html">
+    <bpmn:startEvent id="StartEvent_PaymentRequest" name="支付请求" camunda:formKey="embedded:app:forms/start-form.html" camunda:initiator="initiator">
       <bpmn:outgoing>Flow_1ddqsry</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1ddqsry" sourceRef="StartEvent_PaymentRequest" targetRef="Task_ProductDiscountRule" />
@@ -57,7 +57,7 @@
     </bpmn:businessRuleTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="PaymentProcess">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="paymentprocessid">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_PaymentRequest">
         <dc:Bounds x="162" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>

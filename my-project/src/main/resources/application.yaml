@@ -2,7 +2,10 @@
 # ================ Camunda配置 ========================
 # ====================================================
 # 此处可设置Camunda启动端口
-server.port: 8888
+server:
+  port: 8888
+  servlet:
+    context-path: /
 camunda.bpm:
   admin-user:
     id: demo
