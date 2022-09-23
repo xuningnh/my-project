@@ -35,10 +35,6 @@
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.camunda.bpm.springboot</groupId>
-      <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.camunda.bpm.springboot</groupId>
@@ -59,11 +55,6 @@
 <!--      <groupId>com.h2database</groupId>-->
 <!--      <artifactId>h2</artifactId>-->
 <!--    </dependency>-->
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jdbc</artifactId>
-    </dependency>
 
     <!-- 删除原来的com.h2database:h2依赖，再添加如下依赖 -->
     <!-- 支持Spring Jdbc -->
