@@ -14,6 +14,9 @@ camunda.bpm:
     create: All tasks
   database:
     schema-update: true
+    type: mysql
+  #自动部署resources下面的bpmn文件
+  auto-deployment-enabled: true
 # ====================================================
 # ================ Camunda Mysql数据库配置 =============
 # ====================================================

@@ -43,9 +43,10 @@ public class ProcessAppTest {
     @Test
     public void hello() {
         System.out.println("hello");
-        String businessKey = "111";
+        String businessKey = "xntest2";
         List<ProcessInstance> list = runtimeService.createProcessInstanceQuery()
-                .variableValueNotEquals("someVar", null)
+//                .variableValueNotEquals("someVar", null)
+                .processInstanceBusinessKey(businessKey)
                 .list();
         System.out.println("size: " + list.size());
     }
@@ -61,7 +62,7 @@ public class ProcessAppTest {
         bizPaymentProcessInfo.setPaymentAssignee("5594");
         bizPaymentProcessInfo.setPaymentResult(0);
         bizPaymentProcessInfo.setApprovalResult(0);
-        String businessKey = "1";
+        String businessKey = "xntest2";
         ProcessInstance processInstance = this.runtimeService.startProcessInstanceByKey("PaymentProcess", businessKey, JsonUtils.toMap(bizPaymentProcessInfo));
         System.out.println("over");
     }
@@ -94,6 +95,7 @@ public class ProcessAppTest {
         List<HistoricTaskInstance> historicTaskInstances = this.historyService.createHistoricTaskInstanceQuery()
                 .taskAssignee("5594")
                 .processDefinitionKey("PaymentProcess")
+                .processInstanceBusinessKey("xntest2")
 //                .taskDefinitionKey("Task_UserConfirmPayment")
 //                .finished()
 //                .orderByHistoricActivityInstanceStartTime()
